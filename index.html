@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ведаўс: приложение для учёбы в 1–4 классе</title>
+  <meta name="description" content="Бесплатное приложение без рекламы для учеников 1–4 классов по школьной программе Беларуси. 160 тем и 1600 заданий по математике, русскому и белорусскому языку, «Человеку и миру» и английскому. Рысёнок читает задания вслух, у родителей есть свой кабинет.">
+  <meta name="theme-color" content="#FFF9F2">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Ведаўс: начальная школа с Рысёнком">
+  <meta property="og:description" content="Бесплатное приложение для 1–4 класса по программе школ Беларуси. Без рекламы, на русском и белорусском.">
+  <meta property="og:image" content="https://ludosiellll.github.io/vedayys/assets/images/site/app_menu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="site/img/app-icon-32.png">
+  <link rel="apple-touch-icon" href="site/img/app-icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400..800&family=Rubik:wght@500..800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="site/img/mascot/char.webp" type="image/webp">
+  <link rel="stylesheet" href="site/main.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <!-- Icon set -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5c.6 4.9 2.6 7.5 10.5 10.5-7.9 3-9.9 5.6-10.5 10.5-.6-4.9-2.6-7.5-10.5-10.5C9.4 9 11.4 6.4 12 1.5z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z"/></symbol>
+      <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5v4"/></symbol>
+      <symbol id="i-cards" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="11" height="15" rx="2.5"/><path d="M8 3.5h10.5A2.5 2.5 0 0 1 21 6v12"/></symbol>
+      <symbol id="i-diary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4M8 14l2.2 2.2L15.5 12"/></symbol>
+      <symbol id="i-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6.5" r="3"/><circle cx="6" cy="17.5" r="3"/><path d="M8.5 8 20 18.5M8.5 16 20 5.5"/></symbol>
+      <symbol id="i-voice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="13.5" width="5" height="7" rx="2"/><rect x="16.5" y="13.5" width="5" height="7" rx="2"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4.5"/><path d="m11.5 11.5 8-8M16.5 6.5l2.5 2.5M14 9l2 2"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 20v-6M10 20V9M15 20v-8M20 20V5"/></symbol>
+      <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="8"/><path d="M12 9.5v4l2.5 2M9.5 2.5h5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 6.5 8.5 7 8.5-7"/></symbol>
+      <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor"><path d="M18.7 19.5c-.8 1.2-1.7 2.5-3 2.5-1.4 0-1.8-.8-3.3-.8-1.6 0-2 .8-3.3.8-1.3.1-2.3-1.3-3.1-2.5C4.3 17 2.9 12.5 4.7 9.4c.9-1.5 2.4-2.5 4.1-2.5 1.3 0 2.5.9 3.3.9.8 0 2.3-1.1 3.8-.9.7 0 2.5.3 3.6 2-.1.1-2.2 1.3-2.1 3.8 0 3 2.6 4 2.7 4-.1.1-.5 1.5-1.4 2.8M16 6.9c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.7 1.4-.6.6-1 1.7-.9 2.7 1 .1 2-.5 2.7-1.2"/></symbol>
+      <symbol id="i-gplay" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8 13.8 12 3.6 22.2a2.4 2.4 0 0 1-.6-1.6V3.4c0-.6.2-1.2.6-1.6zm11.2 11.2 2.7-2.6L4.8 3.1zm0 1.9L4.8 20.9l12.7-7.3zm1.4-1.3 3.5-2c1.1-.7 1.1-1.7 0-2.3l-3.5-2L13.8 12z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Ведаўс, в начало страницы">
+        <img src="site/img/app-icon-96.webp" alt="" width="40" height="40">
+        <span>Ведаўс</span>
+      </a>
+      <nav aria-label="Разделы страницы">
+        <ul class="nav__links">
+          <li><a href="#tour">Как устроено</a></li>
+          <li><a href="#try">Попробовать</a></li>
+          <li><a href="#subjects">Предметы</a></li>
+          <li><a href="#parents">Родителям</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="https://github.com/Ludosiellll/vedayys/releases/latest/download/Vedaus.apk" download data-apk-link data-install-help data-source="header">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-download"/></svg>
+        Скачать
+      </a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="drawer" id="drawer" aria-label="Меню" hidden>
+    <a href="#tour">Как устроено</a>
+    <a href="#try">Попробовать задание</a>
+    <a href="#subjects">Предметы и темы</a>
+    <a href="#parents">Родителям</a>
+    <a href="#faq">Вопросы</a>
+    <a class="btn btn--primary" href="https://github.com/Ludosiellll/vedayys/releases/latest/download/Vedaus.apk" download data-apk-link data-install-help data-source="drawer">
+      <svg width="20" height="20" aria-hidden="true"><use href="#i-download"/></svg>
+      Скачать для Android <span class="btn__sub" data-apk-size>161 МБ</span>
+    </a>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <h1 id="hero-title">Начальная школа с&nbsp;Рысёнком</h1>
+          <p class="hero__lead">Бесплатное приложение для учеников 1–4 классов по программе школ Беларуси, без рекламы. Рысёнок читает задания вслух и подсказывает, если ребёнок застрял, а за правильные ответы начисляет опыт и кристаллы.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://github.com/Ludosiellll/vedayys/releases/latest/download/Vedaus.apk" download data-apk-link data-install-help data-source="hero">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-download"/></svg>
+              Скачать для Android
+              <span class="btn__sub" data-apk-size>161 МБ</span>
+            </a>
+            <a class="btn btn--ghost" href="#tour">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-play"/></svg>
+              Посмотреть, как это работает
+            </a>
+          </div>
+          <p class="hero__meta">
+            <span><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Android 7.0 и новее</span>
+            <span><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span>По-русски и <span lang="be">па-беларуску</span></span></span>
+            <span><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>App Store и Google Play скоро</span>
+          </p>
+        </div>
+
+        <div class="stage" id="stage">
+          <div class="stage__ring" aria-hidden="true"></div>
+          <svg class="sparkle sparkle--1" aria-hidden="true"><use href="#i-spark"/></svg>
+          <svg class="sparkle sparkle--2" aria-hidden="true"><use href="#i-spark"/></svg>
+          <svg class="sparkle sparkle--3" aria-hidden="true"><use href="#i-spark"/></svg>
+
+          <!-- One picture drawn in layers: each layer floats on its own and
+               follows the pointer at its own depth. -->
+          <div class="mascot" role="img" aria-label="Рысёнок выпрыгивает из смартфона и протягивает лапу, вокруг летают книги, буквы и цифры">
+            <img class="m-halo" src="site/img/mascot/halo.webp" width="754" height="927" alt="">
+            <img class="m-phone" src="site/img/mascot/phone.webp" width="423" height="811" alt="">
+            <img class="m-char" src="site/img/mascot/char.webp" width="628" height="814" alt="" fetchpriority="high">
+            <img class="m-book-green" src="site/img/mascot/book-green.webp" width="216" height="221" alt="">
+            <img class="m-book-open" src="site/img/mascot/book-open.webp" width="285" height="216" alt="">
+            <img class="m-book-blue" src="site/img/mascot/book-blue.webp" width="233" height="239" alt="">
+            <img class="m-books" src="site/img/mascot/books.webp" width="261" height="206" alt="">
+            <img class="m-a" src="site/img/mascot/a.webp" width="123" height="148" alt="">
+            <img class="m-b" src="site/img/mascot/b.webp" width="123" height="139" alt="">
+            <img class="m-c" src="site/img/mascot/c.webp" width="103" height="111" alt="">
+            <img class="m-1" src="site/img/mascot/1.webp" width="91" height="124" alt="">
+            <img class="m-2" src="site/img/mascot/2.webp" width="109" height="137" alt="">
+            <img class="m-3" src="site/img/mascot/3.webp" width="100" height="123" alt="">
+          </div>
+          <span class="chip chip--gem" aria-hidden="true"><span class="chip__ico">💎</span>+5</span>
+          <span class="chip chip--xp" aria-hidden="true"><span class="chip__ico">⭐</span>+10 XP</span>
+          <span class="chip chip--ok" aria-hidden="true"><span class="chip__ico"><svg width="14" height="14"><use href="#i-check"/></svg></span>Правильно! Молодец!</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <ul class="facts reveal" aria-label="Коротко в цифрах">
+          <li class="fact"><span class="fact__num" data-count="160">160</span><p class="fact__label">тем по программе 1–4 класса</p></li>
+          <li class="fact"><span class="fact__num" data-count="1600">1600</span><p class="fact__label">заданий, по 10 в каждой теме</p></li>
+          <li class="fact"><span class="fact__num">2</span><p class="fact__label">языка, русский и белорусский, оба с озвучкой</p></li>
+          <li class="fact"><span class="fact__num">0</span><p class="fact__label">рекламы и платных разделов</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tour -->
+    <section class="section tour" id="tour" aria-labelledby="tour-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="tour-title">Как проходит занятие</h2>
+        </div>
+
+        <div class="tour__layout">
+          <div class="tour__steps" id="tourSteps">
+            <div class="tour__rail" aria-hidden="true"><i id="tourRail"></i></div>
+
+            <article class="step is-active" data-step="0" aria-labelledby="step1">
+              <span class="step__num" aria-hidden="true">1</span>
+              <div class="step__fig">
+                <div class="phone">
+                  <div class="phone__screen">
+                    <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                    <div class="phone__view"><img src="assets/images/site/app_path.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Тропинка тем по математике для 1 класса: первая тема открыта, на ней кнопка «Старт», следующие темы закрыты замками."></div>
+                  </div>
+                </div>
+              </div>
+              <h3 id="step1">Темы идут по порядку, как в учебнике</h3>
+              <p>У каждого предмета своя тропинка из 10 тем. Следующая тема открывается, когда пройдена предыдущая, а для этого нужно правильно решить хотя бы половину заданий.</p>
+            </article>
+
+            <article class="step" data-step="1" aria-labelledby="step2">
+              <span class="step__num" aria-hidden="true">2</span>
+              <div class="step__fig">
+                <div class="phone">
+                  <div class="phone__screen">
+                    <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                    <div class="phone__view"><img src="assets/images/site/app_lesson.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Урок по математике: краткое содержание параграфа с кнопкой «Слушать», правило в стишке «Солнце ясное — вверху, травка мягкая — внизу» и совет Рысёнка."></div>
+                  </div>
+                </div>
+              </div>
+              <h3 id="step2">Сначала коротко о главном</h3>
+              <p>Перед заданиями ребёнок видит краткое содержание параграфа и правило в стишке. Кнопка «Слушать» читает текст вслух, так что справится и тот, кто пока читает по слогам.</p>
+            </article>
+
+            <article class="step" data-step="2" aria-labelledby="step3">
+              <span class="step__num" aria-hidden="true">3</span>
+              <div class="step__fig">
+                <div class="phone">
+                  <div class="phone__screen">
+                    <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                    <div class="phone__view"><img src="assets/images/site/app_task.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Задание «Где на картинке светит солнышко относительно деревьев?» с картинкой: солнце над деревьями и домом. Выбран ответ «Вверху», он в зелёной рамке с галочкой, ниже надпись «Правильно! Молодец!», пояснение и кнопка «Дальше»."></div>
+                  </div>
+                </div>
+              </div>
+              <h3 id="step3">Ответ проверяется сразу</h3>
+              <p>Верный ответ загорается зелёным, и за него начисляется 10 опыта. Если не получается, можно открыть подсказку Рысёнка. Ошибки после урока решаются ещё раз отдельно, и варианты при этом перемешиваются, так что угадать ответ по месту кнопки не выйдет.</p>
+            </article>
+
+            <article class="step" data-step="3" aria-labelledby="step4">
+              <span class="step__num" aria-hidden="true">4</span>
+              <div class="step__fig">
+                <div class="phone">
+                  <div class="phone__screen">
+                    <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                    <div class="phone__view"><img src="assets/images/site/app_league.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Экран лиги: вклад ученика в рейтинг класса, вкладки «Кланы (классы)» и «Топ учеников», карточка клановой битвы с Бабой-Ягой и карточка батла поделок."></div>
+                  </div>
+                </div>
+              </div>
+              <h3 id="step4">Класс играет одной командой</h3>
+              <p>Класс собирается в клан, и каждое решённое задание добавляет опыта в общий рейтинг. В клановом турнире ученики вместе сражаются с Бабой-Ягой: каждый правильный ответ отнимает у неё здоровье.</p>
+            </article>
+
+            <article class="step" data-step="4" aria-labelledby="step5">
+              <span class="step__num" aria-hidden="true">5</span>
+              <div class="step__fig">
+                <div class="phone">
+                  <div class="phone__screen">
+                    <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                    <div class="phone__view"><img src="assets/images/site/app_achievements.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Экран «Мои достижения»: открыто 2 из 10 наград, карточки «Первый шаг» (получено), «Знаток параграфа» и «Исследователь знаний» с наградой в опыте и кристаллах."></div>
+                  </div>
+                </div>
+              </div>
+              <h3 id="step5">Награды за упорство</h3>
+              <p>Всего десять достижений: за первое задание, первый день занятий, 100, 500 и 1000 опыта и другие. Урок без единой ошибки даёт золотую рамку для аватара на 7 дней.</p>
+              <div class="badges">
+                <img src="site/img/ach-first-step.webp" width="128" height="128" loading="lazy" decoding="async" alt="Значок «Первый шаг»" title="Первый шаг">
+                <img src="site/img/ach-ten-tasks.webp" width="128" height="128" loading="lazy" decoding="async" alt="Значок «Мастер задач»" title="Мастер задач">
+                <img src="site/img/ach-twenty-five-tasks.webp" width="128" height="128" loading="lazy" decoding="async" alt="Значок «Снайпер знаний»" title="Снайпер знаний">
+                <img src="site/img/ach-xp-100.webp" width="128" height="128" loading="lazy" decoding="async" alt="Значок «Первая сотня»" title="Первая сотня">
+                <img src="site/img/ach-xp-500.webp" width="128" height="128" loading="lazy" decoding="async" alt="Значок «Звёздный ученик»" title="Звёздный ученик">
+                <img src="site/img/ach-xp-1000.webp" width="128" height="128" loading="lazy" decoding="async" alt="Значок «Гордость школы»" title="Гордость школы">
+              </div>
+            </article>
+          </div>
+
+          <div class="tour__stage" id="tourStage" data-step="0" aria-hidden="true">
+            <div class="tour__blob"></div>
+            <div class="phone">
+              <div class="phone__screen">
+                <div class="phone__bar"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                <div class="phone__view">
+                  <img class="scr is-on" src="assets/images/site/app_path.webp" width="585" height="1266" loading="lazy" decoding="async" alt="">
+                  <img class="scr" src="assets/images/site/app_lesson.webp" width="585" height="1266" loading="lazy" decoding="async" alt="">
+                  <img class="scr" src="assets/images/site/app_task.webp" width="585" height="1266" loading="lazy" decoding="async" alt="">
+                  <img class="scr" src="assets/images/site/app_league.webp" width="585" height="1266" loading="lazy" decoding="async" alt="">
+                  <img class="scr" src="assets/images/site/app_achievements.webp" width="585" height="1266" loading="lazy" decoding="async" alt="">
+                </div>
+                <span class="phone__glare"></span>
+              </div>
+            </div>
+            <span class="tour__badge" id="tourBadge">1 из 5</span>
+          </div>
+        </div>
+        <div class="tour__dots" id="tourDots" role="group" aria-label="Шаги"></div>
+      </div>
+    </section>
+
+    <!-- Try a task -->
+    <section class="section try" id="try" aria-labelledby="try-title">
+      <div class="container try__grid">
+        <div class="try__text">
+          <div class="section-head reveal">
+            <h2 id="try-title">Попробуйте задание из приложения</h2>
+            <p>Это одно из заданий темы «Вверху, внизу. Слева, справа». В приложении оно выглядит так же: вопрос можно прослушать, а ответ проверяется сразу.</p>
+            <p class="kbd-hint">Отвечать можно и с клавиатуры, цифрами <span><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd></span>.</p>
+          </div>
+          <figure class="rhyme reveal" style="--d:1">
+            <figcaption class="rhyme__label">
+              <svg width="16" height="16" aria-hidden="true"><use href="#i-spark"/></svg>
+              <span id="rhymeLabel">Правило из урока перед этим заданием</span>
+            </figcaption>
+            <blockquote id="rhymeText"><p>Солнце ясное — вверху,<br>Травка мягкая — внизу!</p></blockquote>
+          </figure>
+        </div>
+
+        <div class="task-wrap reveal" id="taskWrap" style="--d:1">
+          <img class="task-wrap__lynx" src="site/img/lynx-greet.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+          <div class="task" id="task">
+            <div class="task__top">
+              <span class="task__title">Задание 1</span>
+              <div class="lang" role="group" aria-label="Язык задания">
+                <button type="button" data-lang="ru" aria-pressed="true">РУС</button>
+                <button type="button" data-lang="be" aria-pressed="false" lang="be">БЕЛ</button>
+              </div>
+              <span class="task__xp" id="taskXp"><span aria-hidden="true">⭐</span> <span id="taskXpVal">0</span> XP</span>
+            </div>
+            <div class="task__progress" aria-hidden="true"><i id="taskBar"></i></div>
+            <div class="task__q">
+              <h3 id="taskQ">Где на картинке светит солнышко относительно деревьев?</h3>
+              <button type="button" class="speak" id="speakBtn" aria-label="Прослушать задание">
+                <svg width="22" height="22" aria-hidden="true"><use href="#i-sound"/></svg>
+              </button>
+            </div>
+            <p class="speak-note" id="speakNote" role="status" hidden></p>
+            <div class="task__pic" role="img" id="taskPic" aria-label="Картинка: вверху солнце, внизу два дерева и домик между ними">
+              <span class="task__sun" aria-hidden="true">☀️</span>
+              <span class="task__ground" aria-hidden="true"><span>🌳</span><span>🏠</span><span>🌳</span></span>
+            </div>
+            <div class="opts" id="opts" role="group" aria-labelledby="taskQ">
+              <button type="button" class="opt" data-i="0"><span class="opt__n" aria-hidden="true">1</span><span class="opt__t">Вверху</span><span class="opt__m" aria-hidden="true"></span></button>
+              <button type="button" class="opt" data-i="1"><span class="opt__n" aria-hidden="true">2</span><span class="opt__t">Внизу</span><span class="opt__m" aria-hidden="true"></span></button>
+              <button type="button" class="opt" data-i="2"><span class="opt__n" aria-hidden="true">3</span><span class="opt__t">Под землёй</span><span class="opt__m" aria-hidden="true"></span></button>
+              <button type="button" class="opt" data-i="3"><span class="opt__n" aria-hidden="true">4</span><span class="opt__t">В кармане</span><span class="opt__m" aria-hidden="true"></span></button>
+            </div>
+            <div class="task__fb" id="taskFb" role="status" aria-live="polite"></div>
+            <button type="button" class="btn btn--green task__again" id="taskAgain" hidden>Ещё раз</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subjects -->
+    <section class="section subjects" id="subjects" aria-labelledby="subjects-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="subjects-title">Предметы и темы по классам</h2>
+          <p>В каждом классе четыре предмета, в каждом предмете 10 тем, в каждой теме 10 заданий. Темы взяты из школьной программы и учебников Беларуси. Выберите класс и посмотрите, что в нём проходят.</p>
+        </div>
+
+        <div class="subjects__bar reveal">
+          <div class="tabs" role="tablist" aria-label="Класс" id="gradeTabs">
+            <button type="button" class="tab" role="tab" id="grade-1" aria-selected="true" aria-controls="subjPanel" data-grade="1">1 класс</button>
+            <button type="button" class="tab" role="tab" id="grade-2" aria-selected="false" aria-controls="subjPanel" data-grade="2" tabindex="-1">2 класс</button>
+            <button type="button" class="tab" role="tab" id="grade-3" aria-selected="false" aria-controls="subjPanel" data-grade="3" tabindex="-1">3 класс</button>
+            <button type="button" class="tab" role="tab" id="grade-4" aria-selected="false" aria-controls="subjPanel" data-grade="4" tabindex="-1">4 класс</button>
+          </div>
+          <p class="subjects__note">Русский язык и беларуская мова друг друга заменяют: какой из них будет у ребёнка, зависит от языка приложения.</p>
+        </div>
+
+        <div class="subj-grid" id="subjPanel" role="tabpanel" aria-labelledby="grade-1">
+          <article class="subj subj--wide subj--math reveal">
+            <div class="subj__head">
+              <span class="subj__icon" aria-hidden="true">2+2</span>
+              <div><h3>Математика</h3><p class="subj__meta">10 тем, 100 заданий</p></div>
+            </div>
+            <p class="subj__desc">Счёт, сравнение, фигуры и задачи. К 4 классу дело доходит до деления уголком, дробей и уравнений.</p>
+            <ol class="subj__list is-collapsed" id="list-math" data-subj="math">
+              <li>Вверху, внизу. Слева, справа. Впереди, сзади</li><li>Столько же. Больше, меньше. Знаки &gt;, &lt;, =</li><li>Числа от 1 до 5. Сложение и вычитание</li><li>Числа от 6 до 10 и число 0</li><li>Числовой отрезок. Сравнение чисел первого десятка</li><li>Геометрические фигуры: точка, прямая, луч, отрезок</li><li>Сантиметр. Измерение длины отрезков</li><li>Связь между суммой и слагаемыми</li><li>Десяток. Двузначные числа от 11 до 20</li><li>Текстовые задачи на сложение и вычитание</li>
+            </ol>
+            <button type="button" class="subj__more" aria-expanded="false" aria-controls="list-math">Показать все 10 тем</button>
+          </article>
+
+          <article class="subj subj--wide subj--ru reveal" style="--d:1">
+            <div class="subj__head">
+              <span class="subj__icon" aria-hidden="true">Аа</span>
+              <div><h3 id="ruTitle">Русский язык и грамота</h3><p class="subj__meta">10 тем, 100 заданий</p></div>
+            </div>
+            <p class="subj__desc" id="ruDesc">В 1 классе темы идут по Букварю: звуки, буквы, слоги. Читать по слогам помогает тренажёр с микрофоном.</p>
+            <ol class="subj__list is-collapsed" id="list-ru" data-subj="ru">
+              <li>Звуки и буквы. Гласные и согласные</li><li>Слог и ударение. Предложение</li><li>Твёрдые и мягкие согласные звуки</li><li>Звонкие и глухие согласные звуки</li><li>Алфавит. Порядок букв</li><li>Большая буква в именах и кличках животных</li><li>Правила переноса слов по слогам</li><li>Правописание ЖИ-ШИ, ЧА-ЩА, ЧУ-ЩУ</li><li>Слова, обозначающие предметы и действия</li><li>Текст и предложение. Составление рассказа</li>
+            </ol>
+            <button type="button" class="subj__more" aria-expanded="false" aria-controls="list-ru">Показать все 10 тем</button>
+          </article>
+
+          <article class="subj subj--be reveal">
+            <div class="subj__head">
+              <span class="subj__icon" aria-hidden="true">Ўў</span>
+              <div><h3 lang="be">Беларуская мова</h3><p class="subj__meta">10 тем, 100 заданий</p></div>
+            </div>
+            <p class="subj__desc">Появляется вместо русского языка, если переключить приложение на белорусский. Задания и озвучка тогда тоже <span lang="be">па-беларуску</span>.</p>
+            <ol class="subj__list is-collapsed" id="list-be" data-subj="be" lang="be">
+              <li>Гукі і літары. Галосныя і зычныя</li><li>Склад і націск. Сказ</li><li>Цвёрдыя і мяккія зычныя гукі</li><li>Звонкія і глухія зычныя гукі</li><li>Алфавіт. Парадак літар</li><li>Вялікая літара ў імёнах і мянушках жывёл</li><li>Правілы пераносу слоў па складах</li><li>Правапіс ЖЫ-ШЫ, ЧЫ-ШЧЫ ў беларускай мове</li><li>Словы, якія абазначаюць прадметы і дзеянні</li><li>Тэкст і сказ. Складанне апавядання</li>
+            </ol>
+            <button type="button" class="subj__more" aria-expanded="false" aria-controls="list-be">Показать все 10 тем</button>
+          </article>
+
+          <article class="subj subj--world reveal" style="--d:1">
+            <div class="subj__head">
+              <span class="subj__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19 13 11"/></svg></span>
+              <div><h3>Человек и мир</h3><p class="subj__meta">10 тем, 100 заданий</p></div>
+            </div>
+            <p class="subj__desc">Природа Беларуси, времена года, здоровье и безопасность. В 4 классе история: Полоцкое княжество, Скорина, замки Мир и Несвиж.</p>
+            <ol class="subj__list is-collapsed" id="list-world" data-subj="world">
+              <li>Живая и неживая природа</li><li>Осень в природе: золотой листопад</li><li>Растения сада и огорода: овощи и фрукты</li><li>Деревья, кустарники и травы Беларуси</li><li>Дикие и домашние животные Беларуси</li><li>Птицы родного края: зимующие и перелётные</li><li>Зима в природе: снег, лёд и мороз</li><li>Весна в природе: пробуждение жизни</li><li>Человек и его здоровье: режим дня и гигиена</li><li>Лето и безопасность: на улице, в лесу и на воде</li>
+            </ol>
+            <button type="button" class="subj__more" aria-expanded="false" aria-controls="list-world">Показать все 10 тем</button>
+          </article>
+
+          <article class="subj subj--en reveal" style="--d:2">
+            <div class="subj__head">
+              <span class="subj__icon" aria-hidden="true" lang="en">Hi!</span>
+              <div><h3>Английский язык</h3><p class="subj__meta">10 тем, 100 заданий</p></div>
+            </div>
+            <p class="subj__desc">Слова и фразы по темам учебника. С 3 класса темы идут по юнитам и добавляется грамматика: Present Simple, can, Past Simple.</p>
+            <ol class="subj__list is-collapsed" id="list-en" data-subj="en">
+              <li>Greetings &amp; Introductions (Приветствия)</li><li>Magic Colors (Цвета радуги)</li><li>Numbers 1 to 10 (Счёт от 1 до 10)</li><li>School Things (Школьные принадлежности)</li><li>Cute Animals &amp; Pets (Животные и питомцы)</li><li>My Family (Моя семья)</li><li>My Toys (Мои любимые игрушки)</li><li>Food &amp; Fruit (Еда и фрукты)</li><li>Body Parts (Части тела)</li><li>Action Verbs (Действия и движения)</li>
+            </ol>
+            <button type="button" class="subj__more" aria-expanded="false" aria-controls="list-en">Показать все 10 тем</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- More than lessons -->
+    <section class="section more" id="more" aria-labelledby="more-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="more-title">Что ещё есть в приложении</h2>
+          <p>Когда тема на сегодня пройдена, в «Ведаўс» есть чем заняться дальше.</p>
+        </div>
+
+        <div class="bento">
+          <article class="card card--boss reveal">
+            <h3>Класс против Бабы-Яги</h3>
+            <p>Ученики одного класса вместе отвечают на вопросы, и каждый правильный ответ снимает у Бабы-Яги часть здоровья. После победы она улетает в избушку на курьих ножках и возвращается через три дня.</p>
+            <div class="boss-hp" aria-hidden="true">
+              <div class="boss-hp__label"><span>Баба-Яга</span><span>HP</span></div>
+              <div class="boss-hp__bar"><i></i></div>
+            </div>
+            <img src="site/img/baba-yaga.webp" width="420" height="618" loading="lazy" decoding="async" alt="Баба-Яга в ступе с метлой">
+          </article>
+
+          <article class="card card--challenge reveal" style="--d:1">
+            <span class="card__icon" aria-hidden="true"><svg width="24" height="24"><use href="#i-bolt"/></svg></span>
+            <h3>Вызов дня</h3>
+            <p>Несколько вопросов на смекалку, проходится раз в день. Например:</p>
+            <p class="bubble">Что легче: 1&nbsp;килограмм ваты или 1&nbsp;килограмм железа?</p>
+          </article>
+
+          <article class="card reveal" style="--d:2">
+            <span class="card__icon" aria-hidden="true"><svg width="24" height="24"><use href="#i-mic"/></svg></span>
+            <h3>Тренажёр слогов</h3>
+            <p>Ребёнок читает слог вслух, а приложение через микрофон проверяет, правильно ли он прозвучал. Запись голоса не сохраняется.</p>
+          </article>
+
+          <article class="card reveal" style="--d:1">
+            <span class="card__icon" aria-hidden="true"><svg width="24" height="24"><use href="#i-cards"/></svg></span>
+            <h3>Карточки слов</h3>
+            <p>Игра на память: открываешь карточки и ищешь пары, слово по-русски и это же слово <span lang="be">па-беларуску</span>.</p>
+          </article>
+
+          <article class="card reveal" style="--d:2">
+            <span class="card__icon" aria-hidden="true"><svg width="24" height="24"><use href="#i-diary"/></svg></span>
+            <h3>Дневник</h3>
+            <p>Своё расписание уроков на неделю, со временем звонков. Сделанное отмечается галочкой.</p>
+          </article>
+
+          <article class="card card--wide card--art reveal">
+            <span class="card__icon" aria-hidden="true"><svg width="24" height="24"><use href="#i-voice"/></svg></span>
+            <h3>Озвучка на двух языках</h3>
+            <p>Вопрос и каждый вариант ответа можно прослушать. В 1 классе задания читаются вслух сами, для 2–4 класса автоозвучку включают родители.</p>
+            <img src="site/img/art-adaptation.webp" width="560" height="560" loading="lazy" decoding="async" alt="">
+          </article>
+
+          <article class="card card--wide card--art reveal" style="--d:1">
+            <span class="card__icon" aria-hidden="true"><svg width="24" height="24"><use href="#i-scissors"/></svg></span>
+            <h3>Батл поделок</h3>
+            <p>Задание недели: сделать поделку по инструкции для своего класса и сфотографировать её. Поделки оценивают другие профили на этом же устройстве, например брат или сестра.</p>
+            <img src="site/img/art-guides.webp" width="552" height="560" loading="lazy" decoding="async" alt="">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Themes -->
+    <section class="section themes" id="themes" data-mode="classic" aria-labelledby="themes-title">
+      <div class="container themes__grid">
+        <div>
+          <div class="section-head reveal">
+            <h2 id="themes-title">Пять тем оформления</h2>
+            <p>Классическая тема есть сразу. Остальные ребёнок открывает за кристаллы, заработанные в заданиях. Космос, например, стоит 50 кристаллов. Переключите и посмотрите, как он выглядит.</p>
+          </div>
+          <div class="seg reveal" role="group" aria-label="Тема оформления на скриншотах">
+            <button type="button" data-theme-btn="classic" aria-pressed="true"><span aria-hidden="true">🦊</span> Классика</button>
+            <button type="button" data-theme-btn="space" aria-pressed="false"><span aria-hidden="true">🚀</span> Космос</button>
+          </div>
+          <ul class="theme-list reveal" aria-label="Все темы оформления">
+            <li>Классическая</li>
+            <li>Космическая одиссея</li>
+            <li>Тёмный лес</li>
+            <li>Солнечный янтарь</li>
+            <li>Беловежский изумруд</li>
+          </ul>
+        </div>
+
+        <div class="themes__phones reveal" style="--d:1">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+              <div class="phone__view">
+                <img class="scr--light" src="assets/images/site/app_menu.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Главный экран в классической светлой теме">
+                <img class="scr--dark" src="assets/images/site/app_space_menu.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Главный экран в тёмно-синей теме «Космос» с голубыми кнопками" aria-hidden="true">
+              </div>
+              <span class="phone__glare" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+              <div class="phone__view">
+                <img class="scr--light" src="assets/images/site/app_path.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Тропинка тем в классической теме">
+                <img class="scr--dark" src="assets/images/site/app_space_path.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Тропинка тем в теме «Космос»: тёмный фон и голубая кнопка «Старт»" aria-hidden="true">
+              </div>
+              <span class="phone__glare" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parents -->
+    <section class="section parents" id="parents" aria-labelledby="parents-title">
+      <div class="container">
+        <div class="parents__card">
+          <div>
+            <div class="section-head reveal">
+              <h2 id="parents-title">Что видит и настраивает родитель</h2>
+              <p>Ребёнок занимается на своём телефоне или планшете, а вы смотрите его успехи у себя.</p>
+            </div>
+            <ul class="plist">
+              <li class="reveal">
+                <span class="plist__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-key"/></svg></span>
+                <div>
+                  <h3>Кабинет родителя по коду</h3>
+                  <p>Ребёнок открывает <span class="path">Профиль → Для родителей → Получить код</span>, а вы вводите эти 6 цифр в своём приложении. Код действует 24 часа.</p>
+                </div>
+              </li>
+              <li class="reveal" style="--d:1">
+                <span class="plist__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-chart"/></svg></span>
+                <div>
+                  <h3>График за неделю</h3>
+                  <p>Опыт и решённые задания по дням за последние 7 дней, успехи по каждому предмету и серия занятий подряд.</p>
+                </div>
+              </li>
+              <li class="reveal" style="--d:2">
+                <span class="plist__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-timer"/></svg></span>
+                <div>
+                  <h3>Лимит экранного времени</h3>
+                  <p>От 15 до 120 минут в день. Когда время выйдет, приложение попросит отдохнуть. Добавить ещё 15 минут можно только по PIN-коду родителя.</p>
+                </div>
+              </li>
+              <li class="reveal" style="--d:3">
+                <span class="plist__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-shield"/></svg></span>
+                <div>
+                  <h3>Без рекламы и платного контента</h3>
+                  <p>В приложении нет баннеров и покупок. Что мы храним и где, написано в <a href="privacy.html">политике конфиденциальности</a>.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="parents__phones reveal" style="--d:1">
+            <div class="phone">
+              <div class="phone__screen">
+                <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                <div class="phone__view"><img src="assets/images/site/app_profile.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Профиль ученика: 1 задание решено, 45 очков опыта, 2 награды. Ниже предложение создать аккаунт для кланов и кабинета родителя и дни активности за неделю."></div>
+                <span class="phone__glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone__screen">
+                <div class="phone__bar" aria-hidden="true"><span>9:41</span><span class="phone__island"></span><span class="phone__icons"><i></i><i></i><i></i><b></b></span></div>
+                <div class="phone__view"><img src="assets/images/site/app_league.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Экран лиги с вкладом ученика в рейтинг класса"></div>
+                <span class="phone__glare" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="section download" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="dl reveal">
+          <div>
+            <h2 id="download-title">Как установить «Ведаўс»</h2>
+            <p>Пока приложение ставится из APK-файла с этого сайта. В App Store и Google Play оно появится позже.</p>
+            <ol class="dl__steps">
+              <li>Скачайте файл на телефон или планшет с Android 7.0 и новее.</li>
+              <li>Откройте его из уведомления о загрузке или из папки «Загрузки».</li>
+              <li>Если Android спросит, разрешите установку из этого источника.</li>
+              <li>Нажмите «Установить» и откройте приложение.</li>
+            </ol>
+            <div class="dl__actions">
+              <a class="btn btn--primary" href="https://github.com/Ludosiellll/vedayys/releases/latest/download/Vedaus.apk" download data-apk-link data-source="download">
+                <svg width="20" height="20" aria-hidden="true"><use href="#i-download"/></svg>
+                Скачать APK
+                <span class="btn__sub" data-apk-size>161 МБ</span>
+              </a>
+            </div>
+            <div class="dl__stores">
+              <span>В магазинах:</span>
+              <span class="store" aria-disabled="true"><svg width="20" height="20" aria-hidden="true"><use href="#i-apple"/></svg>App Store <small>скоро</small></span>
+              <span class="store" aria-disabled="true"><svg width="20" height="20" aria-hidden="true"><use href="#i-gplay"/></svg>Google Play <small>скоро</small></span>
+            </div>
+          </div>
+          <div class="dl__side">
+            <img class="dl__art" src="site/img/lynx-forest.webp" width="640" height="640" loading="lazy" decoding="async" alt="Рысёнок в вышитой рубашке читает книгу на лесной тропинке">
+            <div class="qr">
+              <!-- QR encodes https://ludosiellll.github.io/vedayys/apk/, a page that redirects to the APK release. -->
+              <img src="assets/images/qr_download.png" width="84" height="84" loading="lazy" alt="QR-код со ссылкой на скачивание «Ведаўс»">
+              <span>Наведите камеру телефона, чтобы скачать</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq__grid">
+        <div class="faq__aside reveal">
+          <h2 id="faq-title">Частые вопросы</h2>
+          <p class="faq__note">Не нашли ответа? Напишите на <a href="mailto:support@vedaus.by">support@vedaus.by</a>.</p>
+          <img src="site/img/art-quest.webp" width="560" height="517" loading="lazy" decoding="async" alt="">
+        </div>
+        <div class="faq__list">
+          <details class="reveal">
+            <summary>Сколько это стоит?</summary>
+            <div><p>Нисколько. В приложении нет рекламы, покупок и платных разделов. Кристаллы нельзя купить, их дают только за задания и достижения.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>Почему APK, а не Google Play?</summary>
+            <div><p>Публикацию в магазинах мы ещё готовим. Пока приложение можно поставить из файла с этого сайта, а когда оно появится в Google Play и App Store, ссылки будут здесь.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>На каких устройствах работает?</summary>
+            <div><p>На телефонах и планшетах с Android 7.0 и новее. Установочный файл весит <span data-apk-size>161 МБ</span>.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>Нужен ли аккаунт?</summary>
+            <div><p>Начать можно и без него. Аккаунт понадобится, если вы хотите сохранять прогресс в облаке, вступить в клан или подключить кабинет родителя.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>Как удалить данные ребёнка?</summary>
+            <div><p>Аккаунт удаляется в кабинете родителя, и вместе с ним стирается весь прогресс в облаке и на устройстве. Ещё можно написать нам на <a href="mailto:support@vedaus.by">support@vedaus.by</a>. Подробнее в <a href="privacy.html#rights">политике конфиденциальности</a>.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="#top">
+            <img src="site/img/app-icon-96.webp" alt="" width="40" height="40" loading="lazy">
+            <span>Ведаўс</span>
+          </a>
+          <p class="footer__about">Бесплатное приложение для учеников 1–4 классов по школьной программе Беларуси. Интерфейс и озвучка на русском и белорусском.</p>
+          <a class="mail" href="mailto:support@vedaus.by">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>
+            support@vedaus.by
+          </a>
+        </div>
+        <div>
+          <h2>Приложение</h2>
+          <ul>
+            <li><a href="#tour">Как устроено</a></li>
+            <li><a href="#try">Попробовать задание</a></li>
+            <li><a href="#subjects">Предметы и темы</a></li>
+            <li><a href="#themes">Темы оформления</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Родителям</h2>
+          <ul>
+            <li><a href="#parents">Кабинет родителя</a></li>
+            <li><a href="#faq">Частые вопросы</a></li>
+            <li><a href="privacy.html#security">Как мы храним данные</a></li>
+            <li><a href="mailto:support@vedaus.by">Написать в поддержку</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Скачать</h2>
+          <ul>
+            <li><a href="https://github.com/Ludosiellll/vedayys/releases/latest/download/Vedaus.apk" download data-apk-link data-install-help data-source="footer">APK для Android, <span data-apk-size>161 МБ</span></a></li>
+            <li class="footer__soon" aria-disabled="true">App Store <small>скоро</small></li>
+            <li class="footer__soon" aria-disabled="true">Google Play <small>скоро</small></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 «Ведаўс»</span>
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="dialog" id="installDialog" aria-labelledby="dlgTitle">
+    <button type="button" class="dialog__close" data-close aria-label="Закрыть">
+      <svg width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="dialog__head">
+      <img src="site/img/app-icon-96.webp" alt="" width="52" height="52" loading="lazy">
+      <div>
+        <h2 id="dlgTitle">Файл скачивается</h2>
+        <p>Android 7.0 и новее, <span data-apk-size>161 МБ</span></p>
+      </div>
+    </div>
+    <ol class="dl__steps">
+      <li>Дождитесь, пока загрузка закончится.</li>
+      <li>Откройте файл из уведомления или из папки «Загрузки».</li>
+      <li>Если Android спросит, разрешите установку из этого источника.</li>
+      <li>Нажмите «Установить».</li>
+    </ol>
+    <button type="button" class="btn btn--primary" data-close>Понятно</button>
+  </dialog>
+
+  <script>
+    // ==========================================
+    // DOWNLOAD CONFIG: change the APK link and size here only.
+    // Every element with [data-apk-link] gets APK_URL as href,
+    // every element with [data-apk-size] shows APK_SIZE.
+    // ==========================================
+    const APK_URL = 'https://github.com/Ludosiellll/vedayys/releases/latest/download/Vedaus.apk';
+    const APK_SIZE = '161 МБ';
+
+    document.querySelectorAll('[data-apk-link]').forEach((link) => {
+      link.setAttribute('href', APK_URL);
+    });
+    document.querySelectorAll('[data-apk-size]').forEach((el) => {
+      el.textContent = APK_SIZE;
+    });
+  </script>
+  <script src="site/main.js" defer></script>
+</body>
+</html>

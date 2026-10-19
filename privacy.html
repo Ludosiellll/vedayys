@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Политика конфиденциальности: Ведаўс</title>
+  <meta name="description" content="Какие данные собирает приложение «Ведаўс» для учеников 1–4 классов, зачем, где они хранятся и как родитель может их удалить.">
+  <meta name="theme-color" content="#FFF9F2">
+  <link rel="icon" type="image/png" sizes="32x32" href="site/img/app-icon-32.png">
+  <link rel="apple-touch-icon" href="site/img/app-icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400..800&family=Rubik:wght@500..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/main.css">
+
+  <!--
+    DRAFT — ЧЕРНОВИК. Текст политики подготовлен как рабочий проект и должен быть
+    проверен юристом до публикации (соответствие Закону Республики Беларусь
+    «О защите персональных данных», возраст согласия, сведения об операторе:
+    наименование/ФИО, УНП, адрес, сроки ответа на запросы, трансграничная передача в ЕС).
+  -->
+
+  <style>
+    .nav .btn.keep { display: inline-flex; }
+    .legal { padding: 48px 0 96px; }
+    .legal__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+    .legal__head > div { min-width: 0; }
+    .legal__head h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 800; letter-spacing: -.03em; }
+    .legal__updated { margin-top: 12px; color: var(--ink-2); font-size: 16px; }
+    .legal__head img { width: 120px; height: auto; flex-shrink: 0; }
+
+    .summary {
+      position: relative;
+      padding: 26px 28px;
+      border-radius: 26px;
+      background: var(--mint);
+      border: 1.5px solid #B9E0C9;
+      box-shadow: 0 5px 0 #B9E0C9;
+      margin-bottom: 40px;
+    }
+    .summary h2 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+    .summary ul { display: grid; gap: 10px; }
+    .summary li { position: relative; padding-left: 30px; font-size: 16.5px; color: var(--ink); }
+    .summary li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 3px;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--forest) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4L18 8'/%3E%3C/svg%3E") center / 12px no-repeat;
+    }
+
+    .legal__grid { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; }
+    .toc { position: sticky; top: calc(var(--header-h) + 20px); }
+    .toc p { font-family: var(--font-h); font-weight: 700; font-size: 15px; color: var(--orange-ink); margin-bottom: 10px; }
+    .toc ol { display: grid; gap: 2px; counter-reset: toc; }
+    .toc a {
+      display: block;
+      padding: 7px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: background-color .2s, color .2s;
+    }
+    .toc a:hover, .toc a.is-current { background: var(--cream-2); color: var(--forest); }
+
+    .doc {
+      padding: 36px 40px;
+      border-radius: 28px;
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      box-shadow: 0 5px 0 var(--line);
+    }
+    .doc section + section { margin-top: 30px; padding-top: 28px; border-top: 1.5px dashed var(--line); }
+    .doc h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; scroll-margin-top: calc(var(--header-h) + 20px); }
+    .doc h2 span { color: var(--orange-ink); margin-right: 6px; }
+    .doc h3 { font-size: 17.5px; font-weight: 700; margin: 18px 0 6px; }
+    .doc p, .doc li { font-size: 16.5px; color: #33403A; }
+    .doc p + p, .doc ul + p { margin-top: 10px; }
+    .doc ul { margin-top: 6px; display: grid; gap: 6px; }
+    .doc ul li { position: relative; padding-left: 20px; }
+    .doc ul li::before { content: ""; position: absolute; left: 4px; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .doc a, .summary a { color: var(--orange-ink); font-weight: 700; text-underline-offset: 3px; }
+
+    .legal-footer { background: var(--forest-3); color: #B9C6BF; padding: 28px 0; font-size: 15px; }
+    .legal-footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    .legal-footer a { color: #FCD34D; font-weight: 700; }
+
+    @media (max-width: 960px) {
+      .legal__grid { grid-template-columns: 1fr; }
+      .toc { display: none; }
+    }
+    @media (max-width: 640px) {
+      .legal { padding: 32px 0 64px; }
+      .legal__head img { display: none; }
+      .legal__head h1 { font-size: 30px; }
+      .summary { padding: 20px 18px; }
+      .doc { padding: 24px 18px; border-radius: 22px; }
+      .doc h2 { font-size: 21px; }
+      .site-header .btn--ghost { padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="site/img/app-icon-96.webp" alt="" width="40" height="40">
+        <span>Ведаўс</span>
+      </a>
+      <a class="btn btn--ghost btn--sm keep" href="index.html">На главную</a>
+    </div>
+  </header>
+
+  <main class="legal" id="main">
+    <div class="container">
+      <div class="legal__head">
+        <div>
+          <h1>Политика конфиденциальности</h1>
+          <p class="legal__updated">Редакция от 17 октября 2026 года</p>
+        </div>
+        <img src="site/img/lynx-greet.webp" alt="" width="320" height="320">
+      </div>
+
+      <div class="summary">
+        <h2>Коротко</h2>
+        <ul>
+          <li>Мы собираем только то, без чего приложение не работает: аккаунт, учебный профиль и прогресс.</li>
+          <li>В «Ведаўс» нет рекламы, платного контента и сторонних трекеров. Данные мы не продаём и рекламодателям не передаём.</li>
+          <li>Данные хранятся на устройстве и на сервере Supabase в регионе ЕС.</li>
+          <li>Родитель может в любой момент попросить удалить данные ребёнка: <a href="mailto:support@vedaus.by">support@vedaus.by</a>.</li>
+        </ul>
+      </div>
+
+      <div class="legal__grid">
+        <nav class="toc" aria-label="Содержание">
+          <p>Содержание</p>
+          <ol>
+            <li><a href="#about">О чём этот документ</a></li>
+            <li><a href="#data">Какие данные мы собираем</a></li>
+            <li><a href="#purpose">Зачем нам эти данные</a></li>
+            <li><a href="#storage">Где хранятся данные</a></li>
+            <li><a href="#third-parties">Реклама и сторонние сервисы</a></li>
+            <li><a href="#children">Дети</a></li>
+            <li><a href="#rights">Права родителей</a></li>
+            <li><a href="#retention">Сколько мы храним данные</a></li>
+            <li><a href="#security">Как мы защищаем данные</a></li>
+            <li><a href="#changes">Изменения политики</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ol>
+        </nav>
+
+        <article class="doc">
+          <section>
+            <h2 id="about"><span>1.</span>О чём этот документ</h2>
+            <p>Здесь описано, какие данные собирает приложение «Ведаўс» для учеников 1–4 классов, зачем они нужны, где хранятся и как их удалить. Это касается и детей, и их родителей. Ниже «приложение» и «мы» означают «Ведаўс» и его команду.</p>
+          </section>
+
+          <section>
+            <h2 id="data"><span>2.</span>Какие данные мы собираем</h2>
+            <h3>Аккаунт</h3>
+            <ul>
+              <li>адрес электронной почты;</li>
+              <li>пароль: его хранит сервис входа Supabase Auth только в виде хеша (зашифрованного отпечатка). Сам пароль мы не видим и не храним;</li>
+              <li>имя, которое вы указали при регистрации, и роль: ученик или родитель.</li>
+            </ul>
+            <h3>Учебный профиль</h3>
+            <ul>
+              <li>возраст и класс (1–4);</li>
+              <li>по желанию название школы и буква класса.</li>
+            </ul>
+            <h3>Прогресс в обучении</h3>
+            <ul>
+              <li>пройденные темы и решённые задания, опыт, кристаллы, серия дней занятий, достижения;</li>
+              <li>участие в лигах и кланах. Другие участники лиги или клана видят имя, класс и набранный опыт ребёнка. Почту, возраст, школу и фото другие пользователи не видят.</li>
+            </ul>
+            <h3>Фото профиля (по желанию)</h3>
+            <p>Если вы добавите фото профиля, оно хранится на устройстве и в аккаунте, чтобы показываться и на других устройствах. Вместо фото можно выбрать эмодзи-аватар.</p>
+            <h3>Настройки родителя</h3>
+            <ul>
+              <li>связь между аккаунтами родителя и ребёнка. Она создаётся только по одноразовому коду с устройства ребёнка;</li>
+              <li>дневной лимит времени занятий и PIN-код кабинета родителя.</li>
+            </ul>
+            <h3>Камера и микрофон</h3>
+            <p>Камера включается только по вашему действию: чтобы сделать фото профиля или сфотографировать поделку для батла поделок.</p>
+            <p>Микрофон нужен тренажёру слогов. Речь распознаёт встроенный сервис распознавания речи вашего устройства, а записи голоса мы не сохраняем.</p>
+          </section>
+
+          <section>
+            <h2 id="purpose"><span>3.</span>Зачем нам эти данные</h2>
+            <ul>
+              <li>чтобы создать аккаунт и войти в него;</li>
+              <li>чтобы показывать темы и задания для нужного класса;</li>
+              <li>чтобы сохранять прогресс и переносить его между устройствами;</li>
+              <li>чтобы родитель видел успехи ребёнка в кабинете родителя;</li>
+              <li>чтобы работали лиги, кланы и турниры;</li>
+              <li>чтобы отвечать на ваши письма в поддержку.</li>
+            </ul>
+            <p>Для рекламы данные не используются. Рекламных профилей мы не строим и данные третьим лицам не продаём.</p>
+          </section>
+
+          <section>
+            <h2 id="storage"><span>4.</span>Где хранятся данные</h2>
+            <p>Профиль, прогресс и настройки сохраняются на устройстве. Аккаунт, профиль и прогресс также хранятся на сервере облачной платформы Supabase в регионе Европейского союза. Данные передаются по защищённому соединению (HTTPS).</p>
+          </section>
+
+          <section>
+            <h2 id="third-parties"><span>5.</span>Реклама, трекеры и сторонние сервисы</h2>
+            <p>В приложении нет рекламы, встроенных покупок и сторонних систем аналитики или отслеживания.</p>
+            <p>Для некоторых функций приложение обращается к внешним сервисам:</p>
+            <ul>
+              <li>Supabase хранит аккаунты и прогресс (см. раздел 4);</li>
+              <li>сервис синтеза речи Microsoft озвучивает задания. Туда отправляется только текст задания, без имени, почты и других данных ребёнка;</li>
+              <li>Google Fonts загружает шрифты интерфейса.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="children"><span>6.</span>Дети</h2>
+            <p>«Ведаўс» сделан для детей младшего школьного возраста. Дети младше 14 лет пользуются приложением с согласия родителя или другого законного представителя. Лучше, если аккаунт ребёнка регистрирует или привязывает к своему кабинету сам родитель.</p>
+            <p>Если ребёнок зарегистрировался без вашего согласия, напишите нам, и мы удалим аккаунт.</p>
+          </section>
+
+          <section>
+            <h2 id="rights"><span>7.</span>Права родителей</h2>
+            <p>Родитель или законный представитель ребёнка может:</p>
+            <ul>
+              <li>узнать, какие данные ребёнка у нас хранятся;</li>
+              <li>исправить неточные данные (часть из них можно изменить прямо в профиле);</li>
+              <li>отозвать согласие и потребовать удалить аккаунт и все данные ребёнка.</li>
+            </ul>
+            <p>Для этого напишите на <a href="mailto:support@vedaus.by">support@vedaus.by</a> с адреса, к которому привязан аккаунт ребёнка или родителя. Мы можем попросить подтвердить, что вы родитель или законный представитель ребёнка.</p>
+            <p>Удалить аккаунт можно и в самом приложении, в кабинете родителя. Вместе с аккаунтом удаляется весь прогресс, в облаке и на этом устройстве.</p>
+          </section>
+
+          <section>
+            <h2 id="retention"><span>8.</span>Сколько мы храним данные</h2>
+            <p>Данные хранятся, пока существует аккаунт. После запроса на удаление мы удаляем с сервера аккаунт и связанные с ним данные. Данные на устройстве удаляются вместе с приложением.</p>
+          </section>
+
+          <section>
+            <h2 id="security"><span>9.</span>Как мы защищаем данные</h2>
+            <ul>
+              <li>данные передаются только по защищённому соединению (HTTPS);</li>
+              <li>пароли не хранятся в открытом виде;</li>
+              <li>кабинет родителя защищён PIN-кодом;</li>
+              <li>доступ к серверу с данными есть только у команды приложения.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="changes"><span>10.</span>Изменения политики</h2>
+            <p>Если политика изменится, мы обновим дату редакции вверху страницы. О существенных изменениях сообщим в приложении.</p>
+          </section>
+
+          <section>
+            <h2 id="contacts"><span>11.</span>Контакты</h2>
+            <p>Вопросы о данных и запросы на удаление: <a href="mailto:support@vedaus.by">support@vedaus.by</a>.</p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="legal-footer">
+    <div class="container">
+      <span>© 2026 «Ведаўс»</span>
+      <a href="index.html">Вернуться на главную</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const header = document.getElementById('siteHeader');
+      const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Highlight the current section in the table of contents.
+      const links = Array.from(document.querySelectorAll('.toc a'));
+      if (!('IntersectionObserver' in window) || !links.length) return;
+      const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((a) => a.classList.remove('is-current'));
+          const link = byId.get(entry.target.id);
+          if (link) link.classList.add('is-current');
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('.doc h2[id]').forEach((h) => io.observe(h));
+    })();
+  </script>
+</body>
+</html>
