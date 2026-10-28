@@ -1,0 +1,42 @@
+# Publishes a Vedaus release from the apk-upload branch: joins the APK parts,
+# checks the checksum from update.json and that the APK is signed with the
+# Vedaus key, then creates the release (Vedaus.apk + update.json, which the
+# app reads to offer the update) and deletes the upload branch.
+name: Publish APK release
+on:
+  push:
+    branches: [apk-upload]
+permissions:
+  contents: write
+env:
+  # SHA-256 of the Vedaus signing certificate. An update installs over the
+  # app only when every release is signed with this same key.
+  EXPECTED_CERT_SHA256: 685602f62781a6f4167623dbc8794362c9e1886bc0350da644fee9512c2e408b
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Join the APK parts and check the checksum
+        run: |
+          cat apk-parts/Vedaus.apk.part* > Vedaus.apk
+          expected=$(jq -r .sha256 apk-parts/update.json)
+          actual=$(sha256sum Vedaus.apk | cut -d' ' -f1)
+          echo "sha256: $actual"
+          test "$expected" = "$actual"
+      - name: Check the signing certificate
+        run: |
+          tools=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          cert=$("$tools/apksigner" verify --print-certs Vedaus.apk | sed -n 's/.*SHA-256 digest: //p' | head -1)
+          echo "certificate: $cert"
+          test "$cert" = "$EXPECTED_CERT_SHA256"
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp apk-parts/update.json update.json
+          version=$(jq -r .versionName update.json)
+          gh release create "v$version" Vedaus.apk update.json --repo "$GITHUB_REPOSITORY" \
+            --target main --title "Ведаўс $version" --notes "$(jq -r .notesRu update.json)" --latest
+      - name: Delete the upload branch
+        run: git push origin --delete apk-upload
