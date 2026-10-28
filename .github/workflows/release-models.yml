@@ -1,0 +1,42 @@
+# Publishes the voice and speech-recognition models the app downloads once on
+# first use (models/manifest.json lists each file with its checksum) as a
+# pre-release, so it never becomes the "latest" release the app updates from.
+# Files that are already in the release are replaced; the upload branch is
+# deleted afterwards.
+name: Publish app models
+on:
+  push:
+    branches: [models-upload]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the checksums
+        run: |
+          cd models
+          for f in $(jq -r '.files | keys[]' manifest.json); do
+            expected=$(jq -r --arg f "$f" '.files[$f].sha256' manifest.json)
+            actual=$(sha256sum "$f" | cut -d' ' -f1)
+            echo "$f: $actual"
+            test "$expected" = "$actual"
+          done
+      - name: Create or update the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd models
+          tag=$(jq -r .tag manifest.json)
+          files=$(jq -r '.files | keys[]' manifest.json)
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            gh release upload "$tag" $files manifest.json --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$tag" $files manifest.json --repo "$GITHUB_REPOSITORY" \
+              --target main --title "Голоса и распознавание речи ($tag)" \
+              --notes "Модели, которые приложение скачивает один раз: голоса озвучки и распознавание слогов." \
+              --prerelease --latest=false
+          fi
+      - name: Delete the upload branch
+        run: git push origin --delete models-upload
